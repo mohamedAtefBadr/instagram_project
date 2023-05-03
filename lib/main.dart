@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_project/pages/sign_in.dart';
 
 
 void main() {
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter',
-      
+      theme: ThemeData.dark(),
+      home: const Login(),
     );
   }
 }
