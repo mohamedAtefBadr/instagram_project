@@ -1,9 +1,12 @@
-import 'package:flutter/material.dart';
-
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
+import '../pages/add_pic.dart';
+import '../pages/home.dart';
+import '../pages/profile.dart';
+import '../pages/search.dart';
 import '../widgets/colors.dart';
 
 class WebScreen extends StatefulWidget {
@@ -79,13 +82,24 @@ class _WebScreenState extends State<WebScreen> {
                 color: page == 4 ? primaryColor : secondaryColor,
               ))
         ],
-        
+        title: SvgPicture.asset(
+          "assets/img/instagram.svg",
+          color: primaryColor,
+          height: 35,
+          width: 200,
+        ),
       ),
       body: PageView(
         onPageChanged: (index) {},
         physics: const NeverScrollableScrollPhysics(),
         controller: _pageController,
-        
+        children: const [
+          Home(),
+          Search(),
+          Addpost(),
+          Center(child: Text("Hola",)),
+          Profile(),
+        ],
       ),
     );
   }
