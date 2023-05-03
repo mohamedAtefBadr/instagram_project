@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
-
 
 import 'package:instagram_project/pages/register.dart';
 import 'package:instagram_project/responsive/mobile.dart';
 import 'package:instagram_project/responsive/responsive.dart';
 import 'package:instagram_project/responsive/web.dart';
+import 'package:instagram_project/widgets/colors.dart';
 
+import '../widgets/constants.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -37,8 +37,10 @@ class _LoginState extends State<Login> {
     //final googleSignInProvider = Provider.of<GoogleSignInProvider>(context);
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: mobileBackgroundColor,
           title: const Text("Sign in"),
         ),
+        backgroundColor: mobileBackgroundColor,
         body: Center(
             child: Padding(
           padding: widthscreen > 600? EdgeInsets.symmetric(horizontal: widthscreen*0.20 ): const EdgeInsets.all(33.0),
@@ -52,8 +54,27 @@ class _LoginState extends State<Login> {
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
                   obscureText: false,
+                  decoration: decorationTextfield.copyWith(
+                      hintText: "Enter Your Email : ",
+                      suffixIcon: const Icon(Icons.email))),
+              const SizedBox(
+                height: 33,
               ),
-              
+              TextField(
+                  controller: passwordController,
+                  keyboardType: TextInputType.text,
+                  obscureText: isVisable ? false : true,
+                  decoration: decorationTextfield.copyWith(
+                      hintText: "Enter Your Password : ",
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isVisable = !isVisable;
+                            });
+                          },
+                          icon: isVisable
+                              ? const Icon(Icons.visibility)
+                              : const Icon(Icons.visibility_off)))),
               const SizedBox(
                 height: 33,
               ),
@@ -62,7 +83,13 @@ class _LoginState extends State<Login> {
                   // await signIn();
                   // if (!mounted) return;
                   // showSnackBar(context, "Done ... ");
-                  ;
+                  Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => const Responsive(
+                                mymobile: MobileScreen(),
+                                myweb: WebScreen(),
+                              )),
+                            );
                 },
                 style: ButtonStyle(
                  // backgroundColor: MaterialStateProperty.all(bTNgreen),
