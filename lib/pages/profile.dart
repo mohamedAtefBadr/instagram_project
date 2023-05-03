@@ -43,7 +43,7 @@ class _ProfileState extends State<Profile> {
                     Column(
                       children: const [
                         Text(
-                          "1",
+                          "3",
                           style: TextStyle(
                               fontSize: 22, fontWeight: FontWeight.bold),
                         ),

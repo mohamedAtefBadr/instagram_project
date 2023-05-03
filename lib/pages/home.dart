@@ -137,7 +137,7 @@ class _HomeState extends State<Home> {
             Container( 
                 width: double.infinity,
                 margin: const EdgeInsets.fromLTRB(15, 0, 9, 10),
-                  child: const Text("10 june 2022",
+                  child: const Text("10 april 2023",
                   style: TextStyle(fontSize: 18,
                   color: Color.fromARGB(255, 38, 29, 139),
                   ),
