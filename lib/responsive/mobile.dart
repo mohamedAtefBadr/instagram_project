@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_project/pages/add_pic.dart';
+import 'package:instagram_project/pages/home.dart';
+import 'package:instagram_project/pages/profile.dart';
+import 'package:instagram_project/pages/search.dart';
 import 'package:instagram_project/widgets/colors.dart';
 
 class MobileScreen extends StatefulWidget {
@@ -44,7 +48,13 @@ super.dispose();
         onPageChanged: (index){},
         physics: const NeverScrollableScrollPhysics(),
         controller: _pageController,
-        
+        children: const [
+          Home(),
+          Search(),
+          Addpost(),
+          Center(child: Text("Hola")),
+          Profile(),
+        ],
       ),
     );
   }
